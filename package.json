@@ -1,0 +1,20 @@
+{
+  "name": "namaste-react-coderunner",
+  "version": "1.0.0",
+  "description": "\"Running React code here\"",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserslist": "^4.25.0",
+    "parcel": "^2.15.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "browserslist": [
+    "cover 99.5%"
+  ]
+}
