@@ -1,90 +1,45 @@
-import { readConfig } from "browserslist";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// const heading = React.createElement("div", {id : "parent"}, 
-// [
-//     React.createElement("div", {id : "child1"}, 
-//         [
-//             React.createElement("h1", {}, "This is h1 tag"),
-//             React.createElement("h2", {}, "This is h2 tag"),
-//         ]),
-//     React.createElement("div", {id : "child2"} ,
-//         [
-//             React.createElement("h1", {}, "This is a h1 tag"),
-//             React.createElement("h2", {}, "This is a h2 tag")
-//         ])
-// ])
-
-// const JSXheading = (<h1 id="heading" tabIndex="5">
-//     Hello World from React yo</h1>
-// );
-
-// const TitleComponent = () => (
-//     <h1>Hello from the Title</h1>
-// );
-
-// const HeadingComponent = () => {
-//     return (<div id ="container">
-//         <TitleComponent/>
-//         <h1>Hello Heading</h1>
-//         </div>
-//     )
-// };
-
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(<HeadingComponent/>);
-
-//creating nested elements using React.creatElement
-const heading = React.createElement("div", {className: "title"} ,
-    [
-        React.createElement("h1", {}, "This is a h1 tag"),
-        React.createElement("h2", {}, "This is a h2 tag"),
-        React.createElement("h3", {}, "This is a h3 tag")
-    ]
- );
-
-
-//creating using JSX
-const heading2 = (
-    <div className="title">
-        <h1>This is a h1 tag</h1>
-        <h2>This is a h2 tag</h2>
-        <h3>This is a h3 tag</h3>
+const HeadingComponent = () => {
+   return(<div className="heading">
+        <img className="imgLogo" src="https://www.shutterstock.com/image-vector/burger-logo-vector-icon-symbol-600nw-2496553061.jpg"/>
+        <ul>
+            <li>Links</li>
+            <li>Contact</li>
+            <li>About</li>
+            <li>Cart</li>
+        </ul>
     </div>
-)
+   )
+}
+const RestaurantCard = (props) =>{
+    const name = props?.resname ?? "Wendy's";
+    const description = props?.description ?? "Chicken, Fries";
 
-//create functional component 
-
-const HeadingComponent = () => (
-   
-    <header className="header">
-    <div className="logo-container">
-      <img
-        src="https://www.onedoor.org.au/Images/UserUploadedImages/239/A%20Beautiful%20Mind_%20Tile.png"
-        alt="Your Logo"
-        className="logo"
-      />
-    </div>
-
-    <div className="search-container">
-      <form action="/search" method="GET" className="search-form">
-        <input
-          className="searchBox"
-          type="search"
-          name="q"
-          placeholder="Search…"
-        />
-        <button type="submit">Go</button>
-      </form>
-    </div>
-
-    <div className="right-container">
-      <button className="profile-btn">Profile</button>
-    </div>
-  </header>
-);
-
+    return (
+        <div className="res-card">
+            <img className="res-img" src = "https://img.cdn4dd.com/cdn-cgi/image/fit=cover,width=1000,height=300,format=auto,quality=80/https://doordash-static.s3.amazonaws.com/media/store/header/78e952f2-250e-471d-8a05-24ca784ac46c.png"/>
+            <h4>{name}</h4>
+            <h4>{description}</h4>
+            <h4>38 minutes</h4>
+            <h4>4.4 stars</h4>
+        </div>
+    )
+}
+const RestaurantContainer = () =>
+{
+    return (<div className="res-container">
+        <RestaurantCard/>
+        <RestaurantCard resname = {"McD"} description ={"Burger"}/>
+    </div>)
+}
+const Body = () => {
+    return (<div className="bodyCode">
+            <HeadingComponent/>
+            <RestaurantContainer/>
+        </div>
+    )
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<HeadingComponent/>);
+root.render(<Body/>);
